@@ -1,10 +1,15 @@
-import React from "react";
-import { useRecoilValue } from "recoil";
-import { userInfoSelector, userNameAtom } from "@/state/user";
+import React, { useEffect } from "react";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { userInfoSelector, userNameAtom, userInfoAtom } from "@/state/user";
 
 const UserInfo: React.FC = () => {
   const userName = useRecoilValue<string>(userNameAtom); // userName state 불러오기
-  const userInfo = useRecoilValue(userInfoSelector(userName)); // selectorFamily에 인자(userName) 넘겨서 받은 값 저장
+  const userInfoResponse = useRecoilValue(userInfoSelector(userName)); // selectorFamily에 인자(userName) 넘겨서 받은 값 저장
+  const [userInfo, setUserInfo] = useRecoilState<Users>(userInfoAtom);
+
+  useEffect(() => {
+    setUserInfo(userInfoResponse);
+  }, [userName]);
 
   return (
     <div>
