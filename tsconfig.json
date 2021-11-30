@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "target": "es2015",
+      "module": "commonjs",
+      "strict": true,
+      "sourceMap": true,
+      "lib": ["es2015", "dom"],
+      "jsx": "react",
+      "allowJs": true,
+      "baseUrl": "./",
+      "skipLibCheck": true,
+      "strictNullChecks": false,
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "downlevelIteration": true,
+      "paths": {
+        "@/*": ["src/*"]
+      }
+    },
+  }
+  
